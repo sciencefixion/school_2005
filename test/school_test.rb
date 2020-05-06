@@ -53,4 +53,33 @@ class SchoolTest < Minitest::Test
     assert_equal '12:00', school2.end_time
   end
 
+  #Iteration 3 Tests: "Let's get weird!"
+  def test_it_is_full_time
+
+    school1 = School.new('9:00', 7)
+    school2 = School.new('9:00', 3)
+
+    assert_equal true, school1.is_full_time?
+    assert_equal false, school2.is_full_time?
+  end
+
+  def test_student_names_are_standard
+
+    school = School.new('9:00', 7)
+
+    school.add_student_name('Aurora')
+    school.add_student_name('tim')
+    school.add_student_name('megan')
+
+    assert_equal ['Aurora', 'Tim', 'Megan'], school.standard_student_names
+  end
+
+  #Iteration 4 Tests: Let's a go!
+  def test_it_can_convert_to_clock_time
+
+    school = School.new('9:00', 7)
+
+    assert_equal "4:00", school.convert_end_time_to_clock_time
+  end
+
 end
